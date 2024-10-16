@@ -17,6 +17,14 @@ def encode(data):
 
     return encoded_data
 
+def decode(data):
+    s = ""
+    for i in data[::-1]:
+        if int(i)-3 < 0:
+            s += str(10 + (int(i) - 3))
+        else:
+            s += str(int(i)-3)
+    return s[::-1]
 
 
 if __name__ == "__main__":
@@ -36,11 +44,11 @@ if __name__ == "__main__":
                 print('Your password has been encoded and stored!')
 
             case 2:
-                print(f'The encoded password is {encode(password)}, and the original password is {password}.')
+                print(f'The encoded password is {encode(password)}, and the original password is {decode(encode(password))}.')
 
             case 3:
-                option = 3
-
+                # option = 3
+                exit()
             case _:
                 pass
 
